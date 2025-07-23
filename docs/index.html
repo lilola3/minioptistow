@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship Container Visualization</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: sans-serif; }
+        canvas { display: block; }
+        #ui-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #ui-container label {
+            font-weight: bold;
+            color: #333;
+        }
+        #ui-container input[type="file"],
+        #ui-container input[type="number"],
+        #ui-container input[type="text"], /* Added for the ID search */
+        #ui-container select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 150px;
+        }
+        #ui-container button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        #ui-container button:hover {
+            background-color: #0056b3;
+        }
+        #ui-container button:active {
+            background-color: #004085;
+        }
+    </style>
+  <script type="module" crossorigin src="./assets/index-BA-M2ObV.js"></script>
+</head>
+<body>
+    <div id="ui-container">
+        <div>
+            <label for="file-input">Load Container Data:</label>
+            <input type="file" id="file-input" accept=".json">
+        </div>
+        <hr style="border: none; border-top: 1px solid #eee;">
+        <div>
+            <label for="search-id">Container ID:</label>
+            <input type="text" id="search-id" placeholder="e.g., AAFU7861945">
+        </div>
+        <div>
+            <label for="search-bay">Bay:</label>
+            <input type="number" id="search-bay" placeholder="e.g., 10">
+        </div>
+        <div>
+            <label for="search-row">Row:</label>
+            <input type="number" id="search-row" placeholder="e.g., 5">
+        </div>
+        <div>
+            <label for="search-tier">Tier:</label>
+            <input type="number" id="search-tier" placeholder="e.g., 72">
+        </div>
+        <div>
+            <label for="search-size">Size:</label>
+            <select id="search-size">
+                <option value="">Any</option>
+                <option value="20ft">20ft</option>
+                <option value="40ft">40ft</option>
+                <option value="45ft">45ft</option>
+            </select>
+        </div>
+        <button id="search-button">Search Containers</button>
+        <button id="reset-button">Reset View</button>
+    </div>
+</body>
+</html>
